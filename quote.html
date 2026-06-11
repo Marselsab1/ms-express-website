@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Get a Quote | IMS Express LLC — Heavy Haul & Oversized</title>
+    <meta name="description" content="Request a transport quote from IMS Express LLC. Tell us about pickup, delivery, dimensions, and weight—we'll follow up." />
+    <meta name="keywords" content="IMS Express LLC, heavy haul quote, oversized load quote" />
+    <link rel="canonical" href="https://ims-express-demo.vercel.app/quote" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate icon" href="/favicon.ico" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ims-express-demo.vercel.app/quote" />
+    <meta property="og:title" content="Get a Quote | IMS Express LLC — Heavy Haul &amp; Oversized" />
+    <meta property="og:description" content="Request a transport quote from IMS Express LLC. Tell us about pickup, delivery, dimensions, and weight—we'll follow up." />
+    <meta property="og:image" content="https://ims-express-demo.vercel.app/assets/gallery-74.jpg" />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="960" />
+    <meta property="og:site_name" content="IMS Express LLC" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Get a Quote | IMS Express LLC — Heavy Haul &amp; Oversized" />
+    <meta name="twitter:description" content="Request a transport quote from IMS Express LLC. Tell us about pickup, delivery, dimensions, and weight—we'll follow up." />
+    <meta name="twitter:image" content="https://ims-express-demo.vercel.app/assets/gallery-74.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="topbar">
+      <div class="container">
+        <span class="topbar-left">Accurate quotes start with clear load data</span>
+        <a class="topbar-cta" href="tel:+19379994081">Dispatch · (937) 999-4081</a>
+      </div>
+    </div>
+
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="logo" href="index.html">
+          <span class="logo-mark" aria-hidden="true"></span>
+          IMS <span>Express</span> LLC
+        </a>
+        <nav class="nav" aria-label="Main Navigation">
+          <a href="index.html">Home</a>
+          <a href="equipment.html">Equipment</a>
+          <a href="about.html">About</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="job-application.html">Driver Application</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <div class="nav-cta">
+          <a class="btn btn-secondary" href="tel:+19379994081">Call Dispatch</a>
+          <a class="btn btn-primary" href="quote.html">Get a Quote <span class="arrow">→</span></a>
+          <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" data-nav-toggle><span></span></button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div class="container">
+          <p class="eyebrow">Quote</p>
+          <h1>Request a Transport Quote</h1>
+          <p class="lead">Include dimensions and weight so we can match equipment and permits to your load.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container narrow-form">
+          <div class="quote-panel">
+            <form data-quote-form action="/api/quote" method="POST">
+              <div class="form-grid">
+                <label>Name <input type="text" name="name" autocomplete="name" required /></label>
+                <label>Company <input type="text" name="company" autocomplete="organization" required /></label>
+                <label>Phone <input type="tel" name="phone" autocomplete="tel" required /></label>
+                <label>Email <input type="email" name="email" autocomplete="email" required /></label>
+                <label class="full">Pickup Location <input type="text" name="pickup" required /></label>
+                <label class="full">Delivery Location <input type="text" name="delivery" required /></label>
+                <label class="full">Load Dimensions <input type="text" name="dimensions" placeholder="Length × width × height · weight" required /></label>
+                <label class="full">Additional Details <textarea name="details" placeholder="Commodity, timeline, site or permit constraints"></textarea></label>
+              </div>
+              <p class="form-submit-wrap"><button class="btn btn-primary btn-block" type="submit">Submit Quote Request <span class="arrow">→</span></button></p>
+              <p class="form-note">For time-sensitive freight, call dispatch directly: (937) 999-4081.</p>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="brand">
+          <h3>IMS <span style="color: var(--amber);">Express</span> LLC</h3>
+          <p>Heavy haul, oversized transport, and nationwide logistics—built for freight that does not fit standard trucking.</p>
+          <span class="badge">Licensed · Insured · DOT &amp; FMCSA</span>
+        </div>
+        <div>
+          <h3>Equipment</h3>
+          <ul>
+            <li><a href="equipment.html">Heavy Haul Transportation</a></li>
+            <li><a href="equipment.html">RGN / RGNE Trailers</a></li>
+            <li><a href="equipment.html">Nationwide Logistics</a></li>
+            <li><a href="equipment.html">Permits &amp; Escort</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Company</h3>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="job-application.html">Driver Application</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="quote.html">Get a Quote</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Dispatch</h3>
+          <div class="contact-line">
+            <a href="tel:+19379994081">(937) 999-4081</a>
+            <a href="mailto:imsexpress09@gmail.com">imsexpress09@gmail.com</a>
+            <span>Mon–Sat · 8 a.m.–6 p.m. ET</span>
+            <span>Nationwide service</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container">
+          <div><span>&copy; <span data-year></span> IMS Express LLC. All rights reserved.</span></div>
+          <div><span class="mc">Heavy Haul · Oversized · Logistics</span></div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Block crawling of API endpoints
+Disallow: /api/
+
+Sitemap: https://ims-express-demo.vercel.app/sitemap.xml

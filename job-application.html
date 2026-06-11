@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Driver Application | IMS Express LLC — Heavy Haul Driver Jobs</title>
+    <meta name="description" content="Apply for driver positions at IMS Express LLC—heavy haul, RGN, and RGNE operators." />
+    <link rel="canonical" href="https://ims-express-demo.vercel.app/job-application" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate icon" href="/favicon.ico" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ims-express-demo.vercel.app/job-application" />
+    <meta property="og:title" content="Driver Application | IMS Express LLC — Heavy Haul Driver Jobs" />
+    <meta property="og:description" content="Apply for driver positions at IMS Express LLC—heavy haul, RGN, and RGNE operators." />
+    <meta property="og:image" content="https://ims-express-demo.vercel.app/assets/gallery-74.jpg" />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="960" />
+    <meta property="og:site_name" content="IMS Express LLC" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Driver Application | IMS Express LLC — Heavy Haul Driver Jobs" />
+    <meta name="twitter:description" content="Apply for driver positions at IMS Express LLC—heavy haul, RGN, and RGNE operators." />
+    <meta name="twitter:image" content="https://ims-express-demo.vercel.app/assets/gallery-74.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="topbar">
+      <div class="container">
+        <span class="topbar-left">Heavy haul recruiting · Oversized &amp; specialized freight</span>
+        <a class="topbar-cta" href="tel:+19379994081">Recruiting · (937) 999-4081</a>
+      </div>
+    </div>
+
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="logo" href="index.html">
+          <span class="logo-mark" aria-hidden="true"></span>
+          IMS <span>Express</span> LLC
+        </a>
+        <nav class="nav" aria-label="Main Navigation">
+          <a href="index.html">Home</a>
+          <a href="equipment.html">Equipment</a>
+          <a href="about.html">About</a>
+          <a href="gallery.html">Gallery</a>
+          <a class="active" href="job-application.html">Driver Application</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <div class="nav-cta">
+          <a class="btn btn-secondary" href="tel:+19379994081">Call Dispatch</a>
+          <a class="btn btn-primary" href="quote.html">Get a Quote <span class="arrow">→</span></a>
+          <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" data-nav-toggle><span></span></button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div class="container">
+          <p class="eyebrow">Drivers · Owner Operators</p>
+          <h1>Drive for IMS Express.</h1>
+          <p class="lead">
+            We hire heavy-haul operators who treat permits, securement, and route discipline like the job they actually are. Complete the application below and recruiting will follow up.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container narrow-form">
+          <div class="app-quals">
+            <p class="eyebrow">Minimum Qualifications</p>
+            <h2>What you'll need.</h2>
+            <ul class="list-clean">
+              <li>Valid Class A CDL with current medical card</li>
+              <li>Documented tractor-trailer driving experience</li>
+              <li>Ability to pass DOT pre-employment requirements</li>
+              <li>Commitment to load securement and route compliance</li>
+            </ul>
+          </div>
+
+          <div class="quote-panel">
+            <p class="eyebrow">Driver Application</p>
+            <h2 style="margin-top: 0;">Tell us about yourself.</h2>
+            <form data-job-application-form action="/api/driver-application" method="POST">
+
+              <h3 class="form-section-title">Applicant Information</h3>
+              <div class="form-grid">
+                <label>First Name <input type="text" name="firstName" autocomplete="given-name" required /></label>
+                <label>Last Name <input type="text" name="lastName" autocomplete="family-name" required /></label>
+                <label>Phone <input type="tel" name="phone" autocomplete="tel" required /></label>
+                <label>Email <input type="email" name="email" autocomplete="email" required /></label>
+                <label>Date of Birth <input type="date" name="dob" required /></label>
+                <label class="full">Current Street Address <input type="text" name="address1" autocomplete="address-line1" required /></label>
+                <label class="full">Address Line 2 <input type="text" name="address2" autocomplete="address-line2" /></label>
+                <label>City <input type="text" name="city" autocomplete="address-level2" required /></label>
+                <label>State <input type="text" name="state" autocomplete="address-level1" required /></label>
+                <label>ZIP Code <input type="text" name="zip" autocomplete="postal-code" required /></label>
+                <label>How long at current address? <input type="text" name="addressDuration" placeholder="e.g. 4 years" required /></label>
+              </div>
+
+              <h3 class="form-section-title">Position &amp; Availability</h3>
+              <div class="form-grid">
+                <label>
+                  Position applying for
+                  <select name="position" required>
+                    <option value="">Select one</option>
+                    <option>Company Driver — Oversized</option>
+                    <option>Heavy Haul Driver — RGN / Lowboy</option>
+                    <option>Owner Operator — Oversized</option>
+                    <option>RGN / RGNE Driver</option>
+                  </select>
+                </label>
+                <label>Preferred Start Date <input type="date" name="startDate" required /></label>
+                <label>Legally eligible to work in the U.S.?
+                  <select name="workAuth" required>
+                    <option value="">Select one</option>
+                    <option>Yes</option>
+                    <option>No</option>
+                  </select>
+                </label>
+                <label>Current employment status
+                  <select name="employmentStatus" required>
+                    <option value="">Select one</option>
+                    <option>Employed full-time</option>
+                    <option>Employed part-time</option>
+                    <option>Self-employed</option>
+                    <option>Not currently employed</option>
+                  </select>
+                </label>
+              </div>
+
+              <h3 class="form-section-title">CDL &amp; Compliance</h3>
+              <div class="form-grid">
+                <label>CDL Class
+                  <select name="cdlClass" required>
+                    <option value="">Select one</option>
+                    <option>Class A</option>
+                    <option>Class B</option>
+                  </select>
+                </label>
+                <label>CDL State / Issuing Authority <input type="text" name="cdlState" required /></label>
+                <label>CDL Number <input type="text" name="cdlNumber" required /></label>
+                <label>CDL Expiration Date <input type="date" name="cdlExpiration" required /></label>
+                <label>DOT Medical Card Expiration <input type="date" name="medCardExpiration" required /></label>
+                <label>TWIC card status
+                  <select name="twic" required>
+                    <option value="">Select one</option>
+                    <option>Current TWIC</option>
+                    <option>Eligible, no TWIC yet</option>
+                    <option>Not eligible</option>
+                  </select>
+                </label>
+                <label class="full">Endorsements (check all that apply)</label>
+                <div class="full check-grid">
+                  <label class="check-item"><input type="checkbox" name="endorsements" value="None" />None</label>
+                  <label class="check-item"><input type="checkbox" name="endorsements" value="Tanker" />Tanker (N)</label>
+                  <label class="check-item"><input type="checkbox" name="endorsements" value="HazMat" />HazMat (H)</label>
+                  <label class="check-item"><input type="checkbox" name="endorsements" value="DoublesTriples" />Doubles/Triples (T)</label>
+                  <label class="check-item"><input type="checkbox" name="endorsements" value="X" />X Endorsement</label>
+                  <label class="check-item"><input type="checkbox" name="endorsements" value="Other" />Other</label>
+                </div>
+              </div>
+
+              <h3 class="form-section-title">Heavy Haul &amp; Equipment Experience</h3>
+              <div class="form-grid">
+                <label>Total CDL experience (years) <input type="number" name="experienceYears" min="0" step="1" required /></label>
+                <label>Oversized / heavy haul experience (years) <input type="number" name="heavyHaulYears" min="0" step="1" required /></label>
+                <label>Straight truck experience
+                  <select name="expStraightTruck" required>
+                    <option value="">Select one</option>
+                    <option>None</option>
+                    <option>Less than 1 year</option>
+                    <option>1–2 years</option>
+                    <option>3–5 years</option>
+                    <option>5+ years</option>
+                  </select>
+                </label>
+                <label>Tractor and semi-trailer experience
+                  <select name="expTractorSemi" required>
+                    <option value="">Select one</option>
+                    <option>None</option>
+                    <option>Less than 1 year</option>
+                    <option>1–2 years</option>
+                    <option>3–5 years</option>
+                    <option>5+ years</option>
+                  </select>
+                </label>
+                <label>RGN / RGNE experience
+                  <select name="expStepDeck" required>
+                    <option value="">Select one</option>
+                    <option>None</option>
+                    <option>Less than 1 year</option>
+                    <option>1–2 years</option>
+                    <option>3–5 years</option>
+                    <option>5+ years</option>
+                  </select>
+                </label>
+                <label>RGN / lowboy experience
+                  <select name="expRgnLowboy" required>
+                    <option value="">Select one</option>
+                    <option>None</option>
+                    <option>Less than 1 year</option>
+                    <option>1–2 years</option>
+                    <option>3–5 years</option>
+                    <option>5+ years</option>
+                  </select>
+                </label>
+              </div>
+
+              <h3 class="form-section-title">Safety &amp; Record</h3>
+              <div class="form-grid">
+                <label>Moving violations in last 3 years <input type="number" name="violations3Years" min="0" step="1" required /></label>
+                <label>Preventable accidents in last 3 years <input type="number" name="accidents3Years" min="0" step="1" required /></label>
+                <label>Any DUI/DWI ever?
+                  <select name="duiHistory" required>
+                    <option value="">Select one</option>
+                    <option>No</option>
+                    <option>Yes</option>
+                  </select>
+                </label>
+                <label>Any license suspensions in last 5 years?
+                  <select name="suspensions5Years" required>
+                    <option value="">Select one</option>
+                    <option>No</option>
+                    <option>Yes</option>
+                  </select>
+                </label>
+                <label class="full">Safety explanation (if any incidents above) <textarea name="safetyExplanation" placeholder="Provide dates, locations, and outcomes where applicable."></textarea></label>
+              </div>
+
+              <h3 class="form-section-title">Consent &amp; Signature</h3>
+              <div class="form-grid">
+                <label class="full check-item">
+                  <input type="checkbox" name="consentBackground" required />
+                  I authorize IMS Express LLC to verify my employment, driving, and background information as permitted by law.
+                </label>
+                <label class="full check-item">
+                  <input type="checkbox" name="consentAccuracy" required />
+                  I certify that all information provided is true and complete to the best of my knowledge.
+                </label>
+                <label>Applicant Signature (typed full name) <input type="text" name="signature" required /></label>
+                <label>Date <input type="date" name="signatureDate" required /></label>
+              </div>
+
+              <p class="form-submit-wrap">
+                <button class="btn btn-primary btn-block" type="submit">Submit Job Application <span class="arrow">→</span></button>
+              </p>
+              <p class="form-note">Recruiting reviews applications in the order received. Questions? Call (937) 999-4081.</p>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="brand">
+          <h3>IMS <span style="color: var(--amber);">Express</span> LLC</h3>
+          <p>Heavy haul, oversized transport, and nationwide logistics—built for freight that does not fit standard trucking.</p>
+          <span class="badge">Licensed · Insured · DOT &amp; FMCSA</span>
+        </div>
+        <div>
+          <h3>Equipment</h3>
+          <ul>
+            <li><a href="equipment.html">Heavy Haul Transportation</a></li>
+            <li><a href="equipment.html">RGN / RGNE Trailers</a></li>
+            <li><a href="equipment.html">Nationwide Logistics</a></li>
+            <li><a href="equipment.html">Permits &amp; Escort</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Company</h3>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="job-application.html">Driver Application</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="quote.html">Get a Quote</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Recruiting</h3>
+          <div class="contact-line">
+            <a href="tel:+19379994081">(937) 999-4081</a>
+            <a href="mailto:imsexpress09@gmail.com">imsexpress09@gmail.com</a>
+            <span>Mon–Sat · 8 a.m.–6 p.m. ET</span>
+            <span>Nationwide service</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container">
+          <div><span>&copy; <span data-year></span> IMS Express LLC. All rights reserved.</span></div>
+          <div><span class="mc">Heavy Haul · Oversized · Logistics</span></div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
