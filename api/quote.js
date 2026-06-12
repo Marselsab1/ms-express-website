@@ -1,9 +1,4 @@
 // /api/quote — receives a quote request form POST, emails dispatch via Resend.
-// Same env vars as /api/driver-application:
-//   RESEND_API_KEY (required)
-//   APPLICATION_TO_EMAIL   (default imsexpress09@gmail.com)
-//   APPLICATION_FROM_EMAIL (default IMS Express LLC <onboarding@resend.dev>)
-
 import { Resend } from "resend";
 
 const TO_EMAIL = process.env.APPLICATION_TO_EMAIL || "imsexpress09@gmail.com";
@@ -46,6 +41,9 @@ export default async function handler(req, res) {
   if (!data || typeof data !== "object") {
     return res.status(400).json({ error: "Invalid payload" });
   }
+
+  // honeypot — bots fill the hidden "fax" field; accept silently, send nothing
+  if (data.fax) return res.status(200).json({ ok: true });
 
   const { name, company, phone, email, pickup, delivery, dimensions, details } = data;
 
