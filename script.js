@@ -164,3 +164,30 @@
   }
 
 })();
+
+/* ---- Config diagram lightbox: tap a trailer diagram to view it full-screen ---- */
+(function () {
+  var imgs = document.querySelectorAll(".config-figure img");
+  if (!imgs.length) return;
+  var box = document.createElement("div");
+  box.className = "lightbox";
+  box.setAttribute("aria-hidden", "true");
+  box.innerHTML = '<button class="lightbox-close" type="button" aria-label="Close">&times;</button><img class="lightbox-img" alt="" />';
+  document.body.appendChild(box);
+  var boxImg = box.querySelector(".lightbox-img");
+  function open(src, alt) {
+    boxImg.src = src; boxImg.alt = alt || "";
+    box.classList.add("open"); box.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+  function close() {
+    box.classList.remove("open"); box.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = ""; boxImg.src = "";
+  }
+  imgs.forEach(function (im) {
+    im.style.cursor = "zoom-in";
+    im.addEventListener("click", function () { open(im.currentSrc || im.src, im.alt); });
+  });
+  box.addEventListener("click", function (e) { if (e.target !== boxImg) close(); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") close(); });
+})();

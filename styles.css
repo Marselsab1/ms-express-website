@@ -1498,3 +1498,13 @@ textarea { resize: vertical; min-height: 130px; }
 html, body { overflow-x: hidden; max-width: 100vw; }
 img, video { max-width: 100%; height: auto; }
 
+
+/* ---- Config diagram lightbox ---- */
+.lightbox { position: fixed; inset: 0; z-index: 2000; display: none; align-items: center; justify-content: center; padding: 3vw; background: rgba(8,8,8,0.93); cursor: zoom-out; }
+.lightbox.open { display: flex; animation: lb-fade 0.15s ease; }
+@keyframes lb-fade { from { opacity: 0; } to { opacity: 1; } }
+.lightbox .lightbox-img { max-width: 96vw; max-height: 92vh; width: auto; height: auto; background: #ffffff; border-radius: 8px; box-shadow: 0 24px 70px rgba(0,0,0,0.55); cursor: default; }
+.lightbox-close { position: fixed; top: 16px; right: 20px; width: 44px; height: 44px; border-radius: 50%; border: none; background: rgba(255,255,255,0.14); color: #ffffff; font-size: 26px; line-height: 40px; text-align: center; cursor: pointer; padding: 0; }
+.lightbox-close:hover { background: rgba(255,255,255,0.26); }
+.config-hint { margin-top: 0.55rem; font-size: 0.85rem; color: #8c887b; font-family: var(--body); letter-spacing: 0; }
+@media (max-width: 700px) { .lightbox { padding: 2vw; } .lightbox .lightbox-img { max-width: 98vw; max-height: 88vh; } }
