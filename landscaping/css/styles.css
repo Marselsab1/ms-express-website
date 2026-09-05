@@ -237,7 +237,9 @@ a:hover { color:var(--accent); }
 /* ============================ 7. HERO =================================== */
 .hero { position:relative; isolation:isolate; overflow:hidden; }
 .hero__media { position:absolute; inset:0; z-index:-2; background:#0f1410; }
-.hero__media img { width:100%; height:100%; object-fit:cover; }
+/* The hero crop is wide and shallow; bias it downward so the mower stripes
+   stay in frame on tall viewports rather than the roofline. */
+.hero__media img { width:100%; height:100%; object-fit:cover; object-position:center 62%; }
 .hero::before {
   content:""; position:absolute; inset:0; z-index:-1;
   background:linear-gradient(96deg, rgba(6,8,6,.93) 0%, rgba(6,8,6,.74) 42%, rgba(6,8,6,.28) 100%);
@@ -307,11 +309,12 @@ a:hover { color:var(--accent); }
 }
 .svc__bg { position:absolute; inset:0; z-index:-2; }
 .svc__bg img { width:100%; height:100%; object-fit:cover; transition:transform .8s var(--ease); }
-/* Strong scrim: the card's own text has to win over whatever the photo is
-   doing behind it, at every point down the card. */
+/* Scrim: dense where the text sits, easing off up the card so the photo
+   still reads. Tuned against the real photography, not the placeholders. */
 .svc::after {
   content:""; position:absolute; inset:0; z-index:-1;
-  background:linear-gradient(to top, rgba(8,8,8,.97) 20%, rgba(8,8,8,.86) 55%, rgba(8,8,8,.7) 100%);
+  background:linear-gradient(to top,
+    rgba(8,8,8,.95) 0%, rgba(8,8,8,.88) 30%, rgba(8,8,8,.55) 62%, rgba(8,8,8,.32) 100%);
 }
 .svc:hover .svc__bg img { transform:scale(1.06); }
 .svc h3 {
