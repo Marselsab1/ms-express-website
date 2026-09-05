@@ -226,9 +226,13 @@
   /* ---------------------------------------------------------------------
      6. LEAD FORM
      ---------------------------------------------------------------------
-     Posts to whatever the form's `action` points at. Set that in index.html.
-     If no endpoint is configured yet, it falls back to opening the visitor's
-     email client so no lead is ever silently dropped.
+     Posts to Web3Forms, which emails the submission straight to the address
+     the access key belongs to. No server of our own involved.
+
+     If the key hasn't been pasted in yet, we don't post at all — a request
+     with a placeholder key would be rejected and the lead lost silently.
+     Instead the visitor is told to call, which is worse than a working form
+     but far better than a form that appears to work and doesn't.
      --------------------------------------------------------------------- */
   (function leadForm() {
     var form = document.querySelector("[data-lead-form]");
@@ -236,49 +240,55 @@
 
     var status = form.querySelector("[data-form-status]");
     var submit = form.querySelector("[type=submit]");
+    var keyField = form.querySelector("[name=access_key]");
+    var PHONE = "(513) 580-6732";
 
     function say(message, kind) {
       status.textContent = message;
-      status.className = "form__status " + (kind ? "is-" + kind : "");
+      status.className = "form__status" + (kind ? " is-" + kind : "");
       status.hidden = false;
+    }
+
+    function configured() {
+      var k = keyField && keyField.value.trim();
+      return !!k && k.indexOf("PASTE_YOUR") !== 0;
     }
 
     form.addEventListener("submit", function (e) {
       e.preventDefault();
 
-      // Honeypot: only a bot fills this in.
-      if (form.querySelector("[name=company_website]").value) return;
+      // Honeypot: only a bot fills this in. Bail silently.
+      var trap = form.querySelector("[name=company_website]");
+      if (trap && trap.value) return;
 
       if (!form.checkValidity()) { form.reportValidity(); return; }
 
-      var data = new FormData(form);
-      var action = form.getAttribute("action");
-
-      // No backend wired up yet — hand the lead to the email client instead.
-      if (!action || action === "#") {
-        var body = [];
-        data.forEach(function (value, key) {
-          if (key !== "company_website" && value) body.push(key + ": " + value);
-        });
-        window.location.href =
-          "mailto:" + form.dataset.fallbackEmail +
-          "?subject=" + encodeURIComponent("Estimate request from the website") +
-          "&body=" + encodeURIComponent(body.join("\n"));
-        say("Opening your email app so you can send this through. Prefer to talk? Call (513) 580-6732.", "ok");
+      if (!configured()) {
+        say("This form isn't connected yet. Please call or text " + PHONE +
+            " and we'll get you on the schedule.", "error");
         return;
       }
+
+      var data = new FormData(form);
+      data.delete("company_website");   // keep the trap out of the email
 
       submit.disabled = true;
       say("Sending your request…");
 
-      fetch(action, { method: "POST", body: data, headers: { Accept: "application/json" } })
-        .then(function (res) {
-          if (!res.ok) throw new Error(res.status);
+      fetch(form.action, {
+        method: "POST",
+        body: data,
+        headers: { Accept: "application/json" }
+      })
+        .then(function (res) { return res.json().catch(function () { return {}; }); })
+        .then(function (out) {
+          if (!out.success) throw new Error(out.message || "rejected");
           form.reset();
           say("Thanks — your request is in. Carson will get back to you, usually the same day.", "ok");
         })
         .catch(function () {
-          say("That didn't go through. Please call or text (513) 580-6732 and we'll get you on the schedule.", "error");
+          say("That didn't go through. Please call or text " + PHONE +
+              " and we'll get you on the schedule.", "error");
         })
         .then(function () { submit.disabled = false; });
     });

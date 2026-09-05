@@ -22,10 +22,18 @@ favicon.svg  robots.txt  sitemap.xml
    keeping the same filename (or update the `src` in `index.html`). Widescreen
    JPGs around 1600px wide are the sweet spot. `assets/og.png` is the image
    that shows when the site is shared — worth replacing with a real photo too.
-3. **Form destination.** In `index.html`, find `data-lead-form`. Set `action`
-   to your form endpoint and put your real inbox in `data-fallback-email`.
-   Until `action` is set, submitting opens the visitor's email app — nothing is
-   lost, but it's a worse experience than a proper endpoint.
+3. **Form key.** The quote form posts to Web3Forms, which emails each
+   submission straight to you. Go to https://web3forms.com, enter the address
+   you want leads sent to, and they email you an access key. Paste it into
+   `index.html` where it says `PASTE_YOUR_WEB3FORMS_ACCESS_KEY_HERE`.
+   That's the whole setup — no account, no server, no deploy.
+
+   Until the key is in, the form refuses to submit and tells visitors to call
+   instead. That's deliberate: posting with a placeholder key would be
+   rejected and the lead lost without anyone noticing.
+
+   Replies go to the visitor's own address automatically, so hitting reply in
+   your inbox answers them directly.
 4. **Domain.** Search `clcoutdoorservices.com` in `index.html`, `robots.txt`
    and `sitemap.xml` and swap in the real domain.
 

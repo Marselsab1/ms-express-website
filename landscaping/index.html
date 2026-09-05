@@ -502,12 +502,27 @@
     </div>
 
     <div class="contact__grid">
-      <!-- SETUP: point `action` at your form endpoint (Formspree, Netlify
-           Forms, or your own /api route) and put your real inbox in
-           `data-fallback-email`. Until `action` is set, submitting opens the
-           visitor's email app so no lead is lost. -->
-      <form class="form" data-lead-form action="#" method="post"
-            data-fallback-email="REPLACE-WITH-YOUR-EMAIL@example.com" novalidate>
+      <!-- ==========================================================
+           FORM DELIVERY — Web3Forms
+           ----------------------------------------------------------
+           ONE THING TO DO: go to https://web3forms.com, enter the email
+           address you want quote requests sent to, and they'll email you
+           an access key. Paste it into the access_key value below,
+           replacing PASTE_YOUR_WEB3FORMS_ACCESS_KEY_HERE.
+
+           That's the whole setup. No account, no server, no deploy.
+           Until the key is in, the form tells visitors to call instead
+           of silently failing.
+           ========================================================== -->
+      <form class="form" data-lead-form method="post"
+            action="https://api.web3forms.com/submit" novalidate>
+
+        <input type="hidden" name="access_key" value="PASTE_YOUR_WEB3FORMS_ACCESS_KEY_HERE">
+        <input type="hidden" name="subject" value="New quote request from the CLC website">
+        <input type="hidden" name="from_name" value="CLC Outdoor Services website">
+        <!-- "@" tells Web3Forms to set Reply-To from the visitor's email field,
+             so hitting reply in your inbox answers them directly. -->
+        <input type="hidden" name="replyto" value="@">
         <div class="pair">
           <div class="field">
             <label for="name">Name <span class="req">*</span></label>
