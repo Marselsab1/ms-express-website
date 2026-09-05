@@ -32,8 +32,9 @@ favicon.svg  robots.txt  sitemap.xml
    runs under a content security policy that blocks requests to outside hosts,
    so submitting there always reports a failure regardless. Test it on a real
    host once the site is deployed.
-4. **Domain.** Search `clcoutdoorservices.com` in `index.html`, `robots.txt`
-   and `sitemap.xml` and swap in the real domain.
+4. ~~**Domain.**~~ Decided: `clcoutdoorservices.com`, already set throughout
+   `index.html` (canonical, Open Graph, JSON-LD), `robots.txt` and
+   `sitemap.xml`. Still needs buying and pointing at the host.
 
 ## Editing content
 
@@ -73,3 +74,25 @@ scrolled out of view, and when the browser tab is hidden. For anyone with
 
 Speed lives in `js/main.js` as `SPEED` (pixels per second, default 42).
 `EASE_IN` and `EASE_OUT` control how quickly it slows and speeds back up.
+
+
+## Deploying
+
+The site is static, so any host works. The path that needs no GitHub access:
+
+1. Build a single self-contained `index.html` — styles, scripts and photos all
+   inlined — alongside `og.png` and `robots.txt`.
+2. Put the three in one folder and drag the *folder* onto netlify.com/drop.
+3. Claim the site so it doesn't expire, then add the domain under Domain
+   settings and follow the DNS records it gives you.
+
+The quote form can only be tested from a real host. The Claude artifact
+preview blocks requests to outside origins, so a submit there always fails
+regardless of whether the form is correct.
+
+## Google Business Profile
+
+Once the domain resolves, add it to the GBP so the listing links to the site:
+Google Business Profile → Edit profile → Contact → Website. Use the bare
+`https://clcoutdoorservices.com`, no tracking parameters. The listing
+currently shows "Add website", which is a ranking signal left on the table.
