@@ -912,14 +912,18 @@ a:hover { color: var(--brand-dark); }
    blanket fade on every element.
    ========================================================================== */
 
-.reveal {
+/* Reveal is opt-in: the hidden state only applies once JS has marked the
+   document ready. Without JS (or if it fails) everything renders visible
+   rather than being stranded at opacity 0. */
+.reveal { transition: opacity 760ms var(--ease), transform 760ms var(--ease); }
+
+.js-reveal .reveal {
   opacity: 0;
   transform: translateY(22px);
-  transition: opacity 760ms var(--ease), transform 760ms var(--ease);
 }
-.reveal.is-in { opacity: 1; transform: none; }
-.reveal--slow { transition-duration: 1000ms; }
-.reveal--right { transform: translateX(28px); }
+.js-reveal .reveal--right { transform: translateX(28px); }
+.js-reveal .reveal--slow  { transition-duration: 1000ms; }
+.js-reveal .reveal.is-in  { opacity: 1; transform: none; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

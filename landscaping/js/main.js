@@ -70,10 +70,10 @@
     var items = document.querySelectorAll(".reveal");
     if (!items.length) return;
 
-    if (reduceMotion || !("IntersectionObserver" in window)) {
-      items.forEach(function (el) { el.classList.add("is-in"); });
-      return;
-    }
+    // Nothing is hidden until this class is set, so a JS failure leaves the
+    // page fully readable instead of blank.
+    if (reduceMotion || !("IntersectionObserver" in window)) return;
+    document.documentElement.classList.add("js-reveal");
 
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
