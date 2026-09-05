@@ -283,11 +283,7 @@ a:hover { color:var(--accent); }
 .feature::before {
   content:""; position:absolute; top:0; left:0; right:0; height:5px; background:var(--accent);
 }
-.feature__grid {
-  display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);
-  gap:clamp(2rem,5vw,4.5rem); align-items:center;
-}
-@media (max-width:900px){ .feature__grid { grid-template-columns:1fr; } }
+.feature__inner { max-width: 900px; }
 
 .feature__actions { display:flex; align-items:center; flex-wrap:wrap; gap:var(--sp-3); margin-top:var(--sp-4); }
 .feature__phone {
@@ -296,19 +292,6 @@ a:hover { color:var(--accent); }
 }
 .feature__phone svg { width:20px; height:20px; fill:var(--accent-hi); }
 .feature__phone:hover { color:var(--accent-hi); }
-
-.feature__media { position:relative; }
-.feature__media img {
-  width:100%; aspect-ratio:4/3.4; object-fit:cover; border-radius:var(--r);
-  /* notched corner echoes the angled band without copying anyone's mark */
-  clip-path:polygon(0 0, 100% 0, 100% 78%, 78% 100%, 0 100%);
-}
-.feature__media::after {
-  content:""; position:absolute; inset:auto -14px -14px auto;
-  width:120px; height:120px; border:5px solid var(--accent); border-radius:var(--r);
-  clip-path:polygon(100% 0, 100% 100%, 0 100%);
-  pointer-events:none;
-}
 
 /* ============================ 10. SERVICES ============================== */
 .svc__grid {
