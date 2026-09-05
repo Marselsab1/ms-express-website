@@ -567,12 +567,12 @@ a:hover { color: var(--brand-dark); }
    11. GALLERY / PORTFOLIO
    ========================================================================== */
 
-/* Mosaic: 3 equal columns on fixed-height rows. The first tile is a feature
-   spanning 2x2, which packs the remaining five with no gaps. */
+/* Mosaic: 4 equal columns on fixed-height rows. A 2x2 feature, two single
+   tiles and one double-width tile pack two rows with no gaps. */
 .gallery__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: clamp(170px, 17vw, 250px);
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: clamp(160px, 15vw, 230px);
   gap: 6px;
   margin-top: var(--sp-5);
 }
@@ -585,8 +585,9 @@ a:hover { color: var(--brand-dark); }
   border: 0; padding: 0; cursor: zoom-in;
   width: 100%; height: 100%;
 }
-/* The one tile that carries extra weight, so the grid isn't a flat checkerboard */
+/* Tiles that carry extra weight, so the grid isn't a flat checkerboard */
 .shot--feature { grid-column: span 2; grid-row: span 2; }
+.shot--wide    { grid-column: span 2; }
 
 .shot img {
   width: 100%; height: 100%; object-fit: cover;
@@ -614,7 +615,7 @@ a:hover { color: var(--brand-dark); }
 @media (max-width: 620px) {
   .gallery__grid { grid-template-columns: 1fr; grid-auto-rows: auto; }
   .shot { aspect-ratio: 4 / 3; height: auto; }
-  .shot--feature { grid-column: span 1; grid-row: span 1; }
+  .shot--feature, .shot--wide { grid-column: span 1; grid-row: span 1; }
 }
 
 /* Lightbox */
