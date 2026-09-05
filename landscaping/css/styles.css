@@ -309,13 +309,13 @@ a:hover { color:var(--accent); }
 }
 .svc__bg { position:absolute; inset:0; z-index:-2; }
 .svc__bg img { width:100%; height:100%; object-fit:cover; transition:transform .8s var(--ease); }
-}
-/* Scrim: dense where the text sits, easing off up the card so the photo
-   still reads. Tuned against the real photography, not the placeholders. */
+/* Scrim: dense through the text block, never dropping below ~55% even at the
+   top. Bright photos (sky, pale siding) otherwise wash the bullets out; the
+   floor keeps white text past 6:1 contrast whatever the photo behind it. */
 .svc::after {
   content:""; position:absolute; inset:0; z-index:-1;
   background:linear-gradient(to top,
-    rgba(8,8,8,.95) 0%, rgba(8,8,8,.88) 30%, rgba(8,8,8,.55) 62%, rgba(8,8,8,.32) 100%);
+    rgba(6,6,6,.96) 0%, rgba(6,6,6,.90) 45%, rgba(6,6,6,.74) 72%, rgba(6,6,6,.56) 100%);
 }
 .svc:hover .svc__bg img { transform:scale(1.06); }
 .svc h3 {
