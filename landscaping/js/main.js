@@ -203,6 +203,27 @@
   })();
 
   /* ---------------------------------------------------------------------
+     4b. PROCESS ACCORDION
+     ---------------------------------------------------------------------
+     One panel open at a time. The panel animates via a grid-template-rows
+     0fr -> 1fr transition, so it never needs a hard-coded height.
+     --------------------------------------------------------------------- */
+  (function accordion() {
+    var group = document.querySelector("[data-accordion]");
+    if (!group) return;
+
+    var buttons = Array.prototype.slice.call(group.querySelectorAll(".step__btn"));
+
+    buttons.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var isOpen = btn.getAttribute("aria-expanded") === "true";
+        buttons.forEach(function (b) { b.setAttribute("aria-expanded", "false"); });
+        btn.setAttribute("aria-expanded", isOpen ? "false" : "true");
+      });
+    });
+  })();
+
+  /* ---------------------------------------------------------------------
      5. GALLERY LIGHTBOX
      --------------------------------------------------------------------- */
   (function lightbox() {

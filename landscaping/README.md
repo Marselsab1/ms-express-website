@@ -34,9 +34,14 @@ favicon.svg  robots.txt  sitemap.xml
 Everything is plain HTML with a comment above each section, so you can search
 for the words you see on the page and edit them in place.
 
-- **Brand colours** — top of `css/styles.css`, under `1. DESIGN TOKENS`.
-  `--brand` is the logo red and `--band` is the near-black used for the header
-  and the services section. Change those two and the whole site re-skins.
+- **Brand colours** — top of `css/styles.css`, under `1. TOKENS`.
+  `--accent` is the logo red, `--black` is the page ground, `--navy` is the one
+  coloured band. Change those three and the whole site re-skins.
+- **Process steps** — the accordion in the `PROCESS` section. Copy a whole
+  `<div class="step">` block; the `aria-controls` id must match the panel's id.
+- **Trust cards** — the four cards under the hero. Every claim on them should be
+  something a customer could verify. Don't add "licensed & insured" or
+  "financing available" unless both are actually true.
 - **Services** — add or delete `<li>` lines inside any of the three columns
   in the `SERVICES` section.
 - **Reviews** — copy a whole `<article class="review-card">` block and edit the
@@ -45,6 +50,13 @@ for the words you see on the page and edit them in place.
 - **Service areas** — the `<ul class="areas">` list, plus the matching
   `areaServed` entries in the JSON-LD block.
 - **Phone number** — it appears in several places. Search for `5806732`.
+
+## Design
+
+Layout follows a dark contractor-site pattern: utility bar, sticky header,
+full-bleed hero, four trust cards, an angled navy feature band, service cards,
+a consultation strip, a numbered process accordion, then reviews, service area
+and the quote form. Type is Archivo (headings, 800/900) over Figtree (body).
 
 ## The reviews carousel
 
