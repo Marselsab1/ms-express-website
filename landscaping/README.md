@@ -44,7 +44,7 @@ for the words you see on the page and edit them in place.
   "financing available" unless both are actually true.
 - **Services** — add or delete `<li>` lines inside any of the three columns
   in the `SERVICES` section.
-- **Reviews** — copy a whole `<article class="review-card">` block and edit the
+- **Reviews** — copy a whole `<article class="rcard">` block and edit the
   text, name, initial and date. Also update the rating and count in three
   places: the hero, the reviews heading, and the JSON-LD block in `<head>`.
 - **Service areas** — the `<ul class="areas">` list, plus the matching

@@ -5,7 +5,7 @@
    2. Header shadow on scroll
    3. Section reveal on scroll
    4. Reviews marquee (continuous scroll, eases to a stop on hover)
-   5. Gallery lightbox
+   5. Process accordion
    6. Lead form submission
    7. Today's opening hours highlight
    No dependencies. Everything is progressive — the page works without JS.
@@ -203,7 +203,7 @@
   })();
 
   /* ---------------------------------------------------------------------
-     4b. PROCESS ACCORDION
+     5. PROCESS ACCORDION
      ---------------------------------------------------------------------
      One panel open at a time. The panel animates via a grid-template-rows
      0fr -> 1fr transition, so it never needs a hard-coded height.
@@ -220,47 +220,6 @@
         buttons.forEach(function (b) { b.setAttribute("aria-expanded", "false"); });
         btn.setAttribute("aria-expanded", isOpen ? "false" : "true");
       });
-    });
-  })();
-
-  /* ---------------------------------------------------------------------
-     5. GALLERY LIGHTBOX
-     --------------------------------------------------------------------- */
-  (function lightbox() {
-    var box = document.querySelector("[data-lightbox]");
-    var shots = document.querySelectorAll("[data-shot]");
-    if (!box || !shots.length) return;
-
-    var img = box.querySelector("img");
-    var caption = box.querySelector("[data-lightbox-caption]");
-    var closeBtn = box.querySelector("[data-lightbox-close]");
-    var opener = null;
-
-    function open(source) {
-      var picture = source.querySelector("img");
-      if (!picture) return;
-      opener = source;
-      img.src = picture.currentSrc || picture.src;
-      img.alt = picture.alt;
-      caption.textContent = source.dataset.shot || picture.alt || "";
-      box.classList.add("is-open");
-      document.body.style.overflow = "hidden";
-      closeBtn.focus();
-    }
-
-    function close() {
-      box.classList.remove("is-open");
-      document.body.style.overflow = "";
-      if (opener) { opener.focus(); opener = null; }
-    }
-
-    shots.forEach(function (s) {
-      s.addEventListener("click", function () { open(s); });
-    });
-    closeBtn.addEventListener("click", close);
-    box.addEventListener("click", function (e) { if (e.target === box) close(); });
-    document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape" && box.classList.contains("is-open")) close();
     });
   })();
 
