@@ -301,39 +301,44 @@ a:hover { color:var(--accent); }
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
   margin-top:var(--sp-5);
 }
+/* Card = photo on top, text below it. Nothing overlays the photograph, so
+   the image runs at full brightness and the copy keeps full contrast — a
+   scrim dark enough to read white text on was always dark enough to kill
+   the photo. */
 .svc {
-  position:relative; overflow:hidden; border-radius:var(--r);
-  min-height:340px; display:flex; flex-direction:column; justify-content:flex-end;
-  padding:var(--sp-4); isolation:isolate; color:#fff;
-  border:1px solid var(--hair);
+  display:flex; flex-direction:column;
+  background:var(--panel); color:#fff;
+  border:1px solid var(--hair); border-radius:var(--r);
+  overflow:hidden;
+  transition:border-color var(--dur) var(--ease), transform var(--dur) var(--ease);
 }
-.svc__bg { position:absolute; inset:0; z-index:-2; }
-.svc__bg img { width:100%; height:100%; object-fit:cover; transition:transform .8s var(--ease); }
-/* Scrim: dense through the text block, never dropping below ~55% even at the
-   top. Bright photos (sky, pale siding) otherwise wash the bullets out; the
-   floor keeps white text past 6:1 contrast whatever the photo behind it. */
-.svc::after {
-  content:""; position:absolute; inset:0; z-index:-1;
-  background:linear-gradient(to top,
-    rgba(6,6,6,.96) 0%, rgba(6,6,6,.90) 45%, rgba(6,6,6,.74) 72%, rgba(6,6,6,.56) 100%);
+.svc:hover { border-color:var(--accent); transform:translateY(-4px); }
+
+.svc__bg { position:relative; aspect-ratio:4/3; overflow:hidden; flex:none; }
+.svc__bg img {
+  width:100%; height:100%; object-fit:cover;
+  transition:transform .8s var(--ease);
 }
-.svc:hover .svc__bg img { transform:scale(1.06); }
+.svc:hover .svc__bg img { transform:scale(1.05); }
+
+.svc__body { padding:var(--sp-4); display:flex; flex-direction:column; flex:1; }
+
 .svc h3 {
-  font-size:1.5rem; font-weight:900; text-transform:uppercase;
-  letter-spacing:-.01em; margin-bottom:.5rem;
+  font-size:1.4rem; font-weight:900; text-transform:uppercase;
+  letter-spacing:-.01em; margin-bottom:.65rem;
 }
-.svc ul { list-style:none; margin:0 0 var(--sp-3); padding:0; }
+.svc ul { list-style:none; margin:0 0 var(--sp-3); padding:0; flex:1; }
 .svc li {
-  font-size:.93rem; color:#d2d2d2; padding-left:1.15rem; position:relative; padding-block:.14rem;
+  font-size:.93rem; color:#c9c9c9; padding-left:1.15rem; position:relative; padding-block:.16rem;
 }
 .svc li::before {
-  content:""; position:absolute; left:0; top:.82rem;
+  content:""; position:absolute; left:0; top:.85rem;
   width:8px; height:2px; background:var(--accent); border-radius:2px;
 }
 .svc__link {
   font-family:var(--display); font-weight:800; font-size:.78rem;
   letter-spacing:.11em; text-transform:uppercase; color:#fff;
-  display:inline-flex; align-items:center; gap:.45rem;
+  display:inline-flex; align-items:center; gap:.45rem; margin-top:auto;
 }
 .svc__link:hover { color:var(--accent-hi); }
 
