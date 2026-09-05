@@ -22,18 +22,16 @@ favicon.svg  robots.txt  sitemap.xml
    keeping the same filename (or update the `src` in `index.html`). Widescreen
    JPGs around 1600px wide are the sweet spot. `assets/og.png` is the image
    that shows when the site is shared — worth replacing with a real photo too.
-3. **Form key.** The quote form posts to Web3Forms, which emails each
-   submission straight to you. Go to https://web3forms.com, enter the address
-   you want leads sent to, and they email you an access key. Paste it into
-   `index.html` where it says `PASTE_YOUR_WEB3FORMS_ACCESS_KEY_HERE`.
-   That's the whole setup — no account, no server, no deploy.
+3. ~~**Form key.**~~ Done — the quote form posts to Web3Forms and emails each
+   submission to carsonmcentire1@gmail.com. Replies go to the visitor's own
+   address, so hitting reply in the inbox answers them directly. To send leads
+   somewhere else, make a new form at web3forms.com under that address and
+   swap the `access_key` value in `index.html`.
 
-   Until the key is in, the form refuses to submit and tells visitors to call
-   instead. That's deliberate: posting with a placeholder key would be
-   rejected and the lead lost without anyone noticing.
-
-   Replies go to the visitor's own address automatically, so hitting reply in
-   your inbox answers them directly.
+   **The form cannot be tested from the Claude artifact preview.** That page
+   runs under a content security policy that blocks requests to outside hosts,
+   so submitting there always reports a failure regardless. Test it on a real
+   host once the site is deployed.
 4. **Domain.** Search `clcoutdoorservices.com` in `index.html`, `robots.txt`
    and `sitemap.xml` and swap in the real domain.
 

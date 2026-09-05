@@ -505,19 +505,17 @@
       <!-- ==========================================================
            FORM DELIVERY — Web3Forms
            ----------------------------------------------------------
-           ONE THING TO DO: go to https://web3forms.com, enter the email
-           address you want quote requests sent to, and they'll email you
-           an access key. Paste it into the access_key value below,
-           replacing PASTE_YOUR_WEB3FORMS_ACCESS_KEY_HERE.
+           Submissions are emailed to the address the access key below
+           belongs to. To change where leads go, make a new form at
+           web3forms.com under the new address and swap the key.
 
-           That's the whole setup. No account, no server, no deploy.
-           Until the key is in, the form tells visitors to call instead
-           of silently failing.
+           replyto="@" makes Web3Forms set Reply-To from the visitor's
+           own email, so replying in the inbox answers them directly.
            ========================================================== -->
       <form class="form" data-lead-form method="post"
             action="https://api.web3forms.com/submit" novalidate>
 
-        <input type="hidden" name="access_key" value="PASTE_YOUR_WEB3FORMS_ACCESS_KEY_HERE">
+        <input type="hidden" name="access_key" value="a84a5324-38bf-4f82-b8eb-40d410eb7658">
         <input type="hidden" name="subject" value="New quote request from the CLC website">
         <input type="hidden" name="from_name" value="CLC Outdoor Services website">
         <!-- "@" tells Web3Forms to set Reply-To from the visitor's email field,
