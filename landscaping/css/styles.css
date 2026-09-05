@@ -309,14 +309,6 @@ a:hover { color:var(--accent); }
 }
 .svc__bg { position:absolute; inset:0; z-index:-2; }
 .svc__bg img { width:100%; height:100%; object-fit:cover; transition:transform .8s var(--ease); }
-
-/* Two photos sharing one card, split down the middle with a hairline gap.
-   Each half zooms on hover like a single image would. */
-.svc__bg--split { display:grid; grid-template-columns:1fr 1fr; gap:2px; }
-.svc__bg--split img { width:100%; height:100%; }
-@media (max-width:520px){
-  /* Too narrow for two side by side — stack them instead. */
-  .svc__bg--split { grid-template-columns:1fr; grid-template-rows:1fr 1fr; }
 }
 /* Scrim: dense where the text sits, easing off up the card so the photo
    still reads. Tuned against the real photography, not the placeholders. */
